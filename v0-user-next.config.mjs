@@ -1,13 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  // Configure for GitHub Pages with a repo name as the base path
-  // Replace 'tailwind-styleguide' with your actual repository name if different
-  basePath: process.env.NODE_ENV === 'production' ? '/tailwind-styleguide' : '',
+  // Use a conditional basePath only in production
+  basePath: process.env.NODE_ENV === 'production' ? '/tailwind-v0' : '',
+  // Disable image optimization for static export
   images: {
     unoptimized: true,
   },
+  // Ensure trailing slashes are handled correctly
+  trailingSlash: true,
 };
 
 export default nextConfig;
-
